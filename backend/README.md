@@ -1,4 +1,4 @@
-# Backend - Auto-Prior Art Analyst
+# Backend - VANTAGE
 
 FastAPI backend for AI-powered patent prior art analysis with watsonx integration.
 

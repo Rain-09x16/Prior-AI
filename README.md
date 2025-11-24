@@ -1,4 +1,4 @@
-# Prior Art Analyst
+# Prior Art Analyst (VANTAGE)
 
 **AI-powered patent prior art analysis platform that reduces analysis time from 10-15 hours to minutes.**
 
