@@ -8,11 +8,11 @@ from app.schemas.patent import PatentMatch
 class ExtractedClaims(BaseModel):
     """Extracted claims schema."""
 
-    background: str
-    innovations: List[str]
+    background: str = Field(default="Technical disclosure provided")
+    innovations: List[str] = Field(default_factory=list)
     technicalSpecs: Dict[str, str] = Field(default_factory=dict)
-    keywords: List[str]
-    ipcClassifications: List[str]
+    keywords: List[str] = Field(default_factory=list)
+    ipcClassifications: List[str] = Field(default_factory=list)
 
 
 class DisclosureInfo(BaseModel):
