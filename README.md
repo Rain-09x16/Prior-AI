@@ -150,15 +150,6 @@ Prior-AI/
 │
 └── README.md
 ```
-
----
-
-## 🌐 Live Demo
-
-- **Frontend**: [https://frontend-8gi274h58-aritra-sahas-projects-af9b1f5c.vercel.app](https://frontend-8gi274h58-aritra-sahas-projects-af9b1f5c.vercel.app)
-- **Backend API**: [https://prior-art-analyst-api.onrender.com](https://prior-art-analyst-api.onrender.com)
-- **API Documentation**: [https://prior-art-analyst-api.onrender.com/docs](https://prior-art-analyst-api.onrender.com/docs)
-
 ---
 
 ## 🚀 Quick Start
