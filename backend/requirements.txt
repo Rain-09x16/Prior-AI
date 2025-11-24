@@ -22,6 +22,7 @@ httpx>=0.27.0  # Updated for ibm-watsonx-ai compatibility
 
 # AI/ML dependencies
 ibm-watsonx-ai>=1.4.7
+ibm-watson>=9.1.0
 # ibm-watsonx-orchestrate>=1.15.0  # Commented out - causes dependency conflicts in Docker
 numpy>=2.3.0
 pandas>=2.2.0

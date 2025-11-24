@@ -26,6 +26,14 @@ from app.utils.logger import setup_logger
 
 logger = setup_logger(__name__)
 
+try:
+    from ibm_watson import NaturalLanguageUnderstandingV1
+    from ibm_watson.natural_language_understanding_v1 import Features, KeywordsOptions, EntitiesOptions, ConceptsOptions
+    from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+    NLU_AVAILABLE = True
+except ImportError:
+    NLU_AVAILABLE = False
+
 
 class WatsonxNLU:
     """
@@ -44,30 +52,41 @@ class WatsonxNLU:
         """
         Initialize watsonx NLU client.
 
-        TODO: Set up actual watsonx NLU connection:
-        - Load credentials from environment variables
-        - Initialize IBM Watson NLU client
-        - Configure default analysis features
+        Sets up actual watsonx NLU connection with credentials from environment variables.
         """
-        self.api_key = os.getenv('WATSONX_API_KEY')
+        self.api_key = os.getenv('WATSONX_API_KEY') or os.getenv('WATSONX_NLU_API_KEY')
         self.nlu_url = os.getenv('WATSONX_NLU_URL')
-        self.project_id = os.getenv('WATSONX_PROJECT_ID')
+        self.nlu = None
+        self.use_stub = False
 
         if not self.api_key:
-            logger.warning("WATSONX_API_KEY not set - using stub implementation")
-
-        # TODO: Initialize actual watsonx NLU client
-        # from ibm_watson import NaturalLanguageUnderstandingV1
-        # from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-        #
-        # authenticator = IAMAuthenticator(self.api_key)
-        # self.nlu = NaturalLanguageUnderstandingV1(
-        #     version='2022-04-07',
-        #     authenticator=authenticator
-        # )
-        # self.nlu.set_service_url(self.nlu_url)
-
-        logger.info("WatsonxNLU initialized (STUB mode - needs implementation)")
+            logger.warning("WATSONX_API_KEY or WATSONX_NLU_API_KEY not set - using stub implementation")
+            self.use_stub = True
+        elif not NLU_AVAILABLE:
+            logger.warning("ibm-watson SDK not installed - using stub implementation. Install with: pip install ibm-watson")
+            self.use_stub = True
+        else:
+            try:
+                # Initialize watsonx NLU authenticator
+                authenticator = IAMAuthenticator(apikey=self.api_key)
+                
+                self.nlu = NaturalLanguageUnderstandingV1(
+                    version='2022-04-07',
+                    authenticator=authenticator
+                )
+                
+                # Set service URL if provided (for on-premise deployments)
+                if self.nlu_url:
+                    self.nlu.set_service_url(self.nlu_url)
+                else:
+                    # Default to US South region
+                    self.nlu.set_service_url('https://api.us-south.natural-language-understanding.watson.cloud.ibm.com')
+                
+                logger.info("WatsonxNLU initialized - REAL API mode")
+            except Exception as e:
+                logger.error(f"Failed to initialize watsonx NLU client: {e}")
+                logger.warning("Falling back to stub implementation")
+                self.use_stub = True
 
     def analyze(self, text: str, features: Optional[List[str]] = None) -> Dict:
         """
@@ -92,29 +111,42 @@ class WatsonxNLU:
                 'sentiment': {'score': 0.5, 'label': 'neutral'}
             }
 
-        TODO: AI/ML Developer - Implement actual NLU analysis
         """
         if features is None:
             features = ['keywords', 'entities', 'concepts']
 
-        logger.info(f"Analyzing text with features: {features} (STUB)")
+        if self.use_stub or not self.nlu:
+            logger.info(f"Analyzing text with features: {features} (STUB - no API available)")
+            return self._stub_analyze(text, features)
 
-        # TODO: Replace with actual watsonx NLU call
-        # from ibm_watson.natural_language_understanding_v1 import Features, KeywordsOptions, EntitiesOptions, ConceptsOptions
-        #
-        # response = self.nlu.analyze(
-        #     text=text,
-        #     features=Features(
-        #         keywords=KeywordsOptions(limit=20) if 'keywords' in features else None,
-        #         entities=EntitiesOptions(limit=50) if 'entities' in features else None,
-        #         concepts=ConceptsOptions(limit=10) if 'concepts' in features else None,
-        #     )
-        # ).get_result()
-        #
-        # return response
+        try:
+            logger.info(f"Analyzing text with watsonx NLU, features: {features}, text length: {len(text)} chars")
+            
+            # Build features for the API call
+            feature_params = {}
+            
+            if 'keywords' in features:
+                feature_params['keywords'] = KeywordsOptions(limit=20)
+            if 'entities' in features:
+                feature_params['entities'] = EntitiesOptions(limit=50)
+            if 'concepts' in features:
+                feature_params['concepts'] = ConceptsOptions(limit=10)
+            
+            # Call watsonx NLU API (limit text to 20KB to avoid token limit issues)
+            response = self.nlu.analyze(
+                text=text[:20000],
+                features=Features(**feature_params)
+            ).get_result()
+            
+            logger.info(f"Successfully analyzed text with watsonx NLU")
+            return response
+            
+        except Exception as e:
+            logger.error(f"Error analyzing text with watsonx NLU: {str(e)}")
+            logger.warning("Falling back to stub implementation")
+            return self._stub_analyze(text, features)
 
-        # STUB: Return mock data for testing
-        return self._stub_analyze(text, features)
+
 
     def _stub_analyze(self, text: str, features: List[str]) -> Dict:
         """
