@@ -1,4 +1,4 @@
-# Frontend - Auto-Prior Art Analyst
+# Frontend - VANTAGE
 
 Next.js 14 frontend application for AI-powered patent prior art analysis.
 
