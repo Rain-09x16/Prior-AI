@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+*.db
+*.sqlite
+*.sqlite3
+
+# Node
+node_modules/
+.next/
+out/
+.env*.local
+
+# IDE
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads
+backend/uploads/disclosures/*
+backend/uploads/reports/*
+!backend/uploads/disclosures/.gitkeep
+!backend/uploads/reports/.gitkeep
+
+# Environment
+.env
+.env.local
+
+# Build
+dist/
+build/
+
+# Logs
+*.log
+
+# Private documentation
+Prd.md
+AI_ML_INTEGRATION_GUIDE.md
+
+.vercel

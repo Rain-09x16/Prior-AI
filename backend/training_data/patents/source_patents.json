@@ -1,0 +1,16 @@
+[
+  {
+    "id": "example_patent_001",
+    "patent_number": "US10000000B2",
+    "title": "Example Patent Title - Replace with Real Patent Data",
+    "abstract": "This is a placeholder. Replace with actual patent abstract from Google Patents.",
+    "claims": [
+      "1. A device comprising...",
+      "2. The device of claim 1, wherein..."
+    ],
+    "priority_date": "2019-03-15",
+    "publication_date": "2020-04-20",
+    "ipc_codes": ["H01M10/05"],
+    "notes": "Replace this example with real patent data from Google Patents"
+  }
+]

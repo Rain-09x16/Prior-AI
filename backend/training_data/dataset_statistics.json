@@ -1,0 +1,27 @@
+{
+  "generated_at": "2025-11-23T07:01:38.848476",
+  "dataset_info": {
+    "version": "1.0",
+    "domains_covered": 3,
+    "total_disclosures": 6,
+    "total_prior_art_references": 60
+  },
+  "extraction_statistics": {
+    "total_pairs": 6,
+    "novel_pairs": 3,
+    "not_novel_pairs": 3,
+    "total_prior_art": 40,
+    "similarity_distribution": {
+      "Very High (90-100%)": 0,
+      "High (60-85%)": 0,
+      "Medium (30-60%)": 0,
+      "Low (10-30%)": 0
+    },
+    "total_test_cases": 6
+  },
+  "file_locations": {
+    "idf_pairs": "C:\\Users\\xdgod\\Desktop\\Prior-AI\\backend\\training_data\\pairs",
+    "prior_art_patents": "C:\\Users\\xdgod\\Desktop\\Prior-AI\\backend\\training_data\\patents",
+    "test_cases": "C:\\Users\\xdgod\\Desktop\\Prior-AI\\backend\\training_data\\test_cases.json"
+  }
+}

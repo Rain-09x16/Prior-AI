@@ -1,0 +1,69 @@
+{
+  "case_type": "NOT_NOVEL",
+  "ground_truth_label": "REJECT",
+  "idf_content": {
+    "TITLE_OF_INVENTION": "Modular Science Educational Kit with Digital Media Integration and Mobile App Learning Management System",
+    "SEARCH_TERMS": [
+      "modular science kit digital",
+      "educational experimental set",
+      "science learning app",
+      "interactive educational kit",
+      "STEM learning system"
+    ],
+    "BRIEF_OVERVIEW_LAYPERSON": "This application describes an educational kit combining physical science materials with a digital app that displays educational content. The core architecture—physical experimental set items linked to a computer system with detection and display of relevant media—is substantially disclosed in prior art, most notably US10964228B2 (Mel Science Limited, 2021).\n\nThe present application lacks meaningful innovation.",
+    "TYPE_CLASSIFICATION": "Combination of known elements (educational kit + digital media system)",
+    "TECHNICAL_DESCRIPTION": "Kit comprises physical experimental materials (test tubes, chemicals, apparatus). A mobile app displays educational videos and instructions when users interact with kit items. This architecture is substantially identical to that disclosed in US10964228B2, which explicitly discloses: 'educational system including...experimental set comprising experimental set items, and computer system...configured to display educational media content...in response to detector detecting an item.'",
+    "SUPPORTING_DATA": "User testing shows 60% engagement increase vs. kit-alone condition. This modest improvement is already captured in prior art studies (US10964228B2 demonstrates 70%+ engagement gains).",
+    "PRIOR_FINDINGS": "US10964228B2 (Mel Science Limited, granted 2021) directly anticipates the present application. The reference explicitly discloses: modular experimental kits with media integration, detection systems triggering content display, and computer-mediated learning. The present application merely arranges these known elements.",
+    "STAGE_OF_DEVELOPMENT": "Prototype development stage; limited testing.",
+    "POTENTIAL_LICENSEES": "Not applicable given prior art landscape.",
+    "PUBLICATIONS_DISCLOSURES": "None.",
+    "DATES_CONCEPTION_REDUCTION": {
+      "CONCEPTION_DATE": "2020-08-20",
+      "CONCEPTION_EVIDENCE": "Notebook entry August 20, 2020",
+      "FIRST_REDUCTION_TO_PRACTICE": "2020-11-01",
+      "REDUCTION_EVIDENCE": "Physical kit prototype assembled; app mockup created"
+    },
+    "SPONSORSHIP": "None identified.",
+    "OTHER_AGREEMENTS": "None.",
+    "INVENTORS": [
+      {
+        "NAME": "Dr. James Mitchell",
+        "CITIZENSHIP": "United Kingdom",
+        "DEPARTMENT": "Educational Design",
+        "POSITION": "Product Designer",
+        "EMAIL": "j.mitchell@edukit-corp.uk",
+        "PHONE": "+44-20-7946-0958",
+        "PRIMARY_CONTACT": true,
+        "ADDRESS": "London, UK"
+      }
+    ],
+    "IP_GUIDELINES_AGREEMENT": "Inventor confirms IP agreement."
+  },
+  "relevant_prior_art": [
+    {
+      "id": "US10964228B2",
+      "title": "Educational system, method, computer program product and kit of parts",
+      "similarity": "Very High",
+      "reason": "Directly anticipates modular experimental kit with media integration"
+    },
+    {
+      "id": "US20180053439A1",
+      "title": "Educational system, method, computer program product and kit of parts",
+      "similarity": "High",
+      "reason": "Science experimental set with AR detection and media display"
+    },
+    {
+      "id": "US9472112B2",
+      "title": "Educational construction modular unit",
+      "similarity": "High",
+      "reason": "Modular educational construction system"
+    },
+    {
+      "id": "US20190189021A1",
+      "title": "STEM-CyLE",
+      "similarity": "Medium",
+      "reason": "STEM learning management system"
+    }
+  ]
+}

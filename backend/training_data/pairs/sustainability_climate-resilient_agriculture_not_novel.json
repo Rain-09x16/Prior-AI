@@ -1,0 +1,78 @@
+{
+  "case_type": "NOT_NOVEL",
+  "ground_truth_label": "REJECT",
+  "idf_content": {
+    "TITLE_OF_INVENTION": "Transgenic Stacked Gene Construct for Drought and Heat Tolerance Using Aquaporin and HSP70 Overexpression",
+    "SEARCH_TERMS": [
+      "stacked drought tolerance genes",
+      "aquaporin overexpression crops",
+      "HSP70 heat tolerance",
+      "multi-gene transgenic plants",
+      "climate adaptation agriculture",
+      "water stress tolerance transgenic",
+      "combinatorial gene expression",
+      "crop resilience breeding"
+    ],
+    "BRIEF_OVERVIEW_LAYPERSON": "This application discloses a transgenic crop containing stacked genes for drought and heat tolerance. The core approach—combining aquaporins for water uptake and heat shock proteins for thermal protection—is substantially disclosed in prior art patents, specifically US10604766B2 (Ceres Inc. 'Drought and heat tolerance in plants').\n\nThe present application lacks meaningful differentiation from the cited reference.",
+    "TYPE_CLASSIFICATION": "Composition of matter (transgenic organism)—substantially similar to prior art",
+    "TECHNICAL_DESCRIPTION": "Gene stack includes aquaporin (PIP2) for water transport and HSP70 for heat protection. This combination is substantially similar to that disclosed in US10604766B2, which explicitly discloses 'nucleic acids encoding heat and/or drought-tolerance polypeptides' and 'plants having increased heat and/or drought tolerance.' The present application merely rearranges these known elements.",
+    "SUPPORTING_DATA": "Greenhouse testing shows modest improvement (8-12% yield under drought) — performance already established and exceeded in prior art (US10604766B2 demonstrates 15-25% improvement).",
+    "PRIOR_FINDINGS": "US10604766B2 (Ceres Inc., 2020) explicitly discloses stacked heat/drought tolerance genes including aquaporins and HSP70. The present application's core technical contribution—combining water-transport and heat-protection genes—is directly anticipated.",
+    "STAGE_OF_DEVELOPMENT": "Early greenhouse testing only; no field validation.",
+    "POTENTIAL_LICENSEES": "Not applicable given prior art landscape.",
+    "PUBLICATIONS_DISCLOSURES": "None.",
+    "DATES_CONCEPTION_REDUCTION": {
+      "CONCEPTION_DATE": "2018-07-15",
+      "CONCEPTION_EVIDENCE": "Notebook entry July 15, 2018",
+      "FIRST_REDUCTION_TO_PRACTICE": "2018-10-01",
+      "REDUCTION_EVIDENCE": "Transgenic line created; greenhouse phenotyping initiated"
+    },
+    "SPONSORSHIP": "None identified.",
+    "OTHER_AGREEMENTS": "None.",
+    "INVENTORS": [
+      {
+        "NAME": "Dr. Maria Santos",
+        "CITIZENSHIP": "Brazil",
+        "DEPARTMENT": "Agricultural Biotech",
+        "POSITION": "Research Scientist",
+        "EMAIL": "m.santos@ag-biotech.br",
+        "PHONE": "+55-11-3456-7890",
+        "PRIMARY_CONTACT": true,
+        "ADDRESS": "São Paulo, Brazil"
+      }
+    ],
+    "IP_GUIDELINES_AGREEMENT": "Inventor confirms IP agreement."
+  },
+  "relevant_prior_art": [
+    {
+      "id": "US10604766B2",
+      "title": "Drought and heat tolerance in plants",
+      "similarity": "Very High",
+      "reason": "Directly anticipates stacked aquaporin/HSP70 approach"
+    },
+    {
+      "id": "US11046970B2",
+      "title": "DIAT gene derived from Oryza sativa",
+      "similarity": "High",
+      "reason": "Transgenic drought tolerance approach"
+    },
+    {
+      "id": "US10106813B2",
+      "title": "Drought-tolerance in plants",
+      "similarity": "High",
+      "reason": "Transgenic drought tolerance using promoters and factors"
+    },
+    {
+      "id": "US9957520B2",
+      "title": "Methods of increasing resistance of crop plants to heat stress",
+      "similarity": "High",
+      "reason": "Heat stress tolerance methodology"
+    },
+    {
+      "id": "US9730452B2",
+      "title": "Methods to induce drought tolerance in crops",
+      "similarity": "Medium",
+      "reason": "Drought tolerance approaches"
+    }
+  ]
+}

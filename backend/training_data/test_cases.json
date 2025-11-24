@@ -1,0 +1,173 @@
+{
+  "generated_at": "2025-11-23T07:01:38.847415",
+  "total_test_cases": 6,
+  "test_cases": [
+    {
+      "test_id": "Biotech - Portable PCR_NOVEL",
+      "domain": "Biotech - Portable PCR",
+      "case_type": "NOVEL",
+      "expected_label": "PATENTABLE",
+      "idf_data": {
+        "title": "Portable Real-Time Nucleic Acid Quantification System with Convective Thermocycling",
+        "technical_description": "The apparatus comprises three core subsystems:\n\n1. Temperature Control Unit: A miniaturized heating and cooling system using Peltier elements and thermal exchangers creates discrete temperature zones (95°C for denaturation, 50-65°C for annealing, 72°C for extension). The asymmetric circulation-enabling container creates a closed-loop pathway where reagents continuously flow through these zones in a single-directional convective pattern, eliminating the need for rapid heating/cooling transitions.\n\n2. Detection Optics: A compact light source (LED or laser) excites fluorescent dyes (SYBR Green, FAM, ROX) within the flowing reagent stream. A photo-detector positioned at the optical axis captures emitted fluorescence. Real-time monitoring during each PCR cycle enables Ct (cycle threshold) determination and quantification.\n\n3. Control Electronics: A microprocessor-based system with integrated temperature sensors (thermistors) maintains target temperatures within ±0.5°C. Data acquisition occurs at 1 Hz, capturing fluorescence intensity across all PCR cycles. Wireless connectivity (Bluetooth) enables data transmission to a smartphone app for result interpretation.\n\nProof-of-concept testing demonstrates: (a) 30-minute total run time for virus detection (100 copies/µL to 10^7 copies/µL dynamic range), (b) sensitivity equivalent to bench-top qPCR instruments, (c) battery operation >50 cycles on single charge, (d) device weight <2 kg.",
+        "search_terms": [
+          "portable PCR",
+          "quantitative PCR apparatus",
+          "qRT-PCR device",
+          "field nucleic acid detection",
+          "convective thermocycling",
+          "real-time fluorescence detection",
+          "miniaturized thermal cycler",
+          "point-of-care diagnostics",
+          "mobile molecular testing",
+          "temperature control biomedical device"
+        ]
+      },
+      "validation_data": {},
+      "prior_art_count": 8,
+      "expected_similarity_range": {
+        "min": 0.0,
+        "max": 0.7,
+        "expected": "low_to_medium"
+      }
+    },
+    {
+      "test_id": "Biotech - Portable PCR_NOT_NOVEL",
+      "domain": "Biotech - Portable PCR",
+      "case_type": "NOT_NOVEL",
+      "expected_label": "REJECT",
+      "idf_data": {
+        "title": "Compact Convective Thermal Cycler with Integrated Real-Time Fluorescence Detection for Portable PCR Applications",
+        "technical_description": "The apparatus uses a substantially similar architecture to prior art:\n\n1. Asymmetric Circulation Chamber: Closed-loop container with inlet/outlet ports; reagents flow through defined temperature zones (95°C denaturation, 55°C annealing, 72°C extension). This is substantially identical to US20170282178A1.\n\n2. Heating/Cooling System: Peltier-based temperature control with conventional thermistor sensors (±0.5°C accuracy). This thermal control approach is standard in the art and disclosed in multiple prior patents including US9533308B2.\n\n3. Detection Optics: Light source (LED/laser) and photodetector with standard band-pass filters for fluorophore detection (SYBR Green, FAM). Real-time Ct determination using threshold-crossing methodology—a well-established technique (disclosed in US20100085570A1, US8427643B2).\n\n4. Data Acquisition: Microprocessor with 1 Hz sampling rate; Bluetooth wireless transmission. These are routine engineering implementations.",
+        "search_terms": [
+          "convective PCR apparatus",
+          "uni-directional flow thermocycler",
+          "portable quantitative PCR",
+          "field-deployable qRT-PCR",
+          "asymmetric circulation chamber",
+          "integrated fluorescence detection PCR",
+          "mobile qPCR device",
+          "continuous-flow temperature zones",
+          "handheld nucleic acid amplification",
+          "point-of-care qPCR"
+        ]
+      },
+      "validation_data": {},
+      "prior_art_count": 7,
+      "expected_similarity_range": {
+        "min": 0.7,
+        "max": 1.0,
+        "expected": "high_to_very_high"
+      }
+    },
+    {
+      "test_id": "Sustainability - Climate-Resilient Agriculture_NOVEL",
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "case_type": "NOVEL",
+      "expected_label": "PATENTABLE",
+      "idf_data": {
+        "title": "Multi-Pathway Gene Stack for Enhanced Drought and Heat Resilience in Staple Crops",
+        "technical_description": "The gene stack comprises four synergistic elements:\n\n1. Water Acquisition Module (OSPIP2:AQP8 overexpression): Aquaporin proteins improve water transport across cell membranes, enabling faster water uptake during limited rainfall events. Field validation shows 22% improvement in water-use efficiency measured as biomass per milliliter of water applied.\n\n2. Osmotic Adjustment Module (DIAT gene encoding amino transferase): Promotes proline and glycine betaine accumulation under drought stress, maintaining cell turgor and photosynthetic function when soil moisture drops. Transgenic lines maintain 89% of normal photosynthetic rate under 40% soil water deficit vs. 45% for wild-type controls.\n\n3. Heat Dissipation Module (HSP70 and NAC transcription factors): Heat shock proteins act as molecular chaperones stabilizing enzymes under heat. NAC factors coordinately upregulate stress-responsive genes (HYR, WRKY family). Combined overexpression maintains grain setting at 32°C (wild-type fails above 28°C).\n\n4. Root Architecture Module (ROOT ARCHITECTURE 1 gene; LOX family): Deeper, more branched root systems access water from lower soil horizons (30-60 cm depth). Transgenic lines develop 40% greater lateral root density.\n\nGene Integration Method: Agrobacterium-mediated transformation using a multi-gene construct (10.2 kb) with constitutive promoters (maize ubiquitin), selectable marker (phosphinothricin acetyltransferase), and regulatory elements. Transformation efficiency: 1.2% for rice, 0.8% for wheat, 2.1% for maize. Homozygous stable lines identified in T2 generation.",
+        "search_terms": [
+          "climate-resilient crops",
+          "polygenic drought tolerance",
+          "heat stress adaptation",
+          "crop gene stacking",
+          "water-use efficiency",
+          "abiotic stress tolerance",
+          "transgenic crop breeding",
+          "yield stability climate change",
+          "drought-tolerant rice wheat maize",
+          "sustainable agriculture biotechnology"
+        ]
+      },
+      "validation_data": {},
+      "prior_art_count": 8,
+      "expected_similarity_range": {
+        "min": 0.0,
+        "max": 0.7,
+        "expected": "low_to_medium"
+      }
+    },
+    {
+      "test_id": "Sustainability - Climate-Resilient Agriculture_NOT_NOVEL",
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "case_type": "NOT_NOVEL",
+      "expected_label": "REJECT",
+      "idf_data": {
+        "title": "Transgenic Stacked Gene Construct for Drought and Heat Tolerance Using Aquaporin and HSP70 Overexpression",
+        "technical_description": "Gene stack includes aquaporin (PIP2) for water transport and HSP70 for heat protection. This combination is substantially similar to that disclosed in US10604766B2, which explicitly discloses 'nucleic acids encoding heat and/or drought-tolerance polypeptides' and 'plants having increased heat and/or drought tolerance.' The present application merely rearranges these known elements.",
+        "search_terms": [
+          "stacked drought tolerance genes",
+          "aquaporin overexpression crops",
+          "HSP70 heat tolerance",
+          "multi-gene transgenic plants",
+          "climate adaptation agriculture",
+          "water stress tolerance transgenic",
+          "combinatorial gene expression",
+          "crop resilience breeding"
+        ]
+      },
+      "validation_data": {},
+      "prior_art_count": 5,
+      "expected_similarity_range": {
+        "min": 0.7,
+        "max": 1.0,
+        "expected": "high_to_very_high"
+      }
+    },
+    {
+      "test_id": "EdTech - STEM Learning Kit_NOVEL",
+      "domain": "EdTech - STEM Learning Kit",
+      "case_type": "NOVEL",
+      "expected_label": "PATENTABLE",
+      "idf_data": {
+        "title": "Integrated Modular Robotics-STEM Kit with AI-Powered Adaptive Difficulty Scaling and Collaborative Learning Platform",
+        "technical_description": "System Architecture comprises three integrated layers:\n\n1. Hardware Layer—Modular Construction Blocks: Each block (25×25 mm cube module) contains: (a) embedded ARM Cortex-M4 microprocessor (80 MHz), (b) wireless transceiver (Bluetooth 5.0, mesh networking), (c) multiple I/O interfaces (motor driver, sensor connector, power distribution), (d) multi-color LED status indicator. Blocks magnetically couple to enable rapid construction/reconfiguration. Total kit: 200+ blocks supporting construction of 50+ distinct robotic systems (wheeled rovers, manipulator arms, flying platforms). Example: 4-DOF robotic arm built from 35 blocks; code execution decentralized across 5+ microcontrollers.\n\n2. Firmware & Edge Intelligence: Each block runs lightweight embedded OS enabling real-time motor/sensor control and inter-block communication. Distributed algorithm coordinates multi-block systems without central controller—e.g., 6-legged walker uses gait-generation algorithm distributed across 6 leg-control blocks. Firmware updates via wireless with rollback capability.\n\n3. AI-Powered Adaptive Engine: Cloud-resident machine learning system (Python/TensorFlow) ingests telemetry from student activities: (a) Task attempt duration, (b) Success/failure patterns, (c) Error types (mechanical vs. logic), (d) peer interaction metadata. Using supervised learning on 50K+ prior student sessions, system predicts appropriate next challenge:       If student completes tasks 85-95% success rate → increase complexity (add constraints, time limits)\\n      If student success rate <70% → scaffold current task (provide hints, decompose problem)\\n      If success rate >98% → accelerate progression.\n\n4. Collaborative Learning Platform: Web/mobile app enabling: (a) Real-time code sharing across distributed students (operational transformation for conflict-free editing), (b) Video chat with persistent design workspace, (c) Asynchronous peer code review (markdown-based annotations), (d) Team reputation system incentivizing help-giving. Backend: Node.js + MongoDB for low-latency collaboration; WebSocket for real-time sync.\n\nIntegration: Student builds physically, observes behavior, receives AI-generated feedback on platform, collaborates with peers remotely, downloads adaptive challenge. All blocks sync wirelessly; telemetry streams to platform for adaptive engine.",
+        "search_terms": [
+          "modular robotics education",
+          "STEM learning kit",
+          "adaptive difficulty scaling",
+          "collaborative STEM platform",
+          "block-based robotics construction",
+          "AI-powered educational system",
+          "hands-on engineering education",
+          "middle school STEM",
+          "problem-based learning robotics",
+          "distributed learning architecture"
+        ]
+      },
+      "validation_data": {},
+      "prior_art_count": 8,
+      "expected_similarity_range": {
+        "min": 0.0,
+        "max": 0.7,
+        "expected": "low_to_medium"
+      }
+    },
+    {
+      "test_id": "EdTech - STEM Learning Kit_NOT_NOVEL",
+      "domain": "EdTech - STEM Learning Kit",
+      "case_type": "NOT_NOVEL",
+      "expected_label": "REJECT",
+      "idf_data": {
+        "title": "Modular Science Educational Kit with Digital Media Integration and Mobile App Learning Management System",
+        "technical_description": "Kit comprises physical experimental materials (test tubes, chemicals, apparatus). A mobile app displays educational videos and instructions when users interact with kit items. This architecture is substantially identical to that disclosed in US10964228B2, which explicitly discloses: 'educational system including...experimental set comprising experimental set items, and computer system...configured to display educational media content...in response to detector detecting an item.'",
+        "search_terms": [
+          "modular science kit digital",
+          "educational experimental set",
+          "science learning app",
+          "interactive educational kit",
+          "STEM learning system"
+        ]
+      },
+      "validation_data": {},
+      "prior_art_count": 4,
+      "expected_similarity_range": {
+        "min": 0.7,
+        "max": 1.0,
+        "expected": "high_to_very_high"
+      }
+    }
+  ]
+}

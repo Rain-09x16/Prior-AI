@@ -1,0 +1,331 @@
+{
+  "total_patents": 40,
+  "similarity_distribution": {
+    "Very High (90-100%)": 0,
+    "High (60-85%)": 0,
+    "Medium (30-60%)": 0,
+    "Low (10-30%)": 0
+  },
+  "patents": [
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOVEL",
+      "id": "US10947588B2",
+      "title": "Restriction mediated quantitative polymerase chain reactions",
+      "similarity": "High",
+      "reason": "Quantitative PCR primer technology, similar fluorescence-based detection paradigm"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOVEL",
+      "id": "US20170282178A1",
+      "title": "Portable QPCR and QRT-PCR Apparatus",
+      "similarity": "Very High",
+      "reason": "Directly addresses portable qPCR with uni-directional convective approach—core reference"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOVEL",
+      "id": "US9533308B2",
+      "title": "PC board-based polymerase chain reaction systems",
+      "similarity": "High",
+      "reason": "Miniaturized PCR on printed circuit boards; integrated thermal control"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOVEL",
+      "id": "US20180258465A1",
+      "title": "Methods and Devices for Performing Real Time Digital PCR",
+      "similarity": "High",
+      "reason": "Real-time PCR detection with multiple independent mini-reactors"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOVEL",
+      "id": "US9592510B2",
+      "title": "Real-time PCR in micro-channels",
+      "similarity": "Medium",
+      "reason": "Continuous-flow thermocycling in microfluidic channels; real-time fluorescence monitoring"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOVEL",
+      "id": "US20130177913A1",
+      "title": "Real-time PCR in micro-channels",
+      "similarity": "Medium",
+      "reason": "Microfluidic PCR with temperature cycling and real-time detection"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOVEL",
+      "id": "US8427643B2",
+      "title": "Real-time PCR monitoring apparatus",
+      "similarity": "Medium",
+      "reason": "Real-time fluorescence detection apparatus; optical design considerations"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOVEL",
+      "id": "US20100085570A1",
+      "title": "Real-time PCR monitoring apparatus",
+      "similarity": "Low",
+      "reason": "Fluorescence detection for PCR; optical filtering but lacks portability focus"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US20170282178A1",
+      "title": "Portable QPCR and QRT-PCR Apparatus",
+      "similarity": "Very High",
+      "reason": "Core reference—substantially identical convective PCR apparatus with real-time detection"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US9533308B2",
+      "title": "PC board-based polymerase chain reaction systems",
+      "similarity": "High",
+      "reason": "Miniaturized PCR with integrated thermal control elements"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US20180258465A1",
+      "title": "Methods and Devices for Performing Real Time Digital PCR",
+      "similarity": "High",
+      "reason": "Real-time PCR with temperature-controlled mini-reactors"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US9592510B2",
+      "title": "Real-time PCR in micro-channels",
+      "similarity": "High",
+      "reason": "Continuous-flow PCR with temperature zones and real-time monitoring"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US20100085570A1",
+      "title": "Real-time PCR monitoring apparatus",
+      "similarity": "Medium",
+      "reason": "Real-time PCR optical detection system design"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US8427643B2",
+      "title": "Real-time PCR monitoring apparatus",
+      "similarity": "Medium",
+      "reason": "Apparatus for real-time PCR with fluorescence detection"
+    },
+    {
+      "domain": "Biotech - Portable PCR",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US10947588B2",
+      "title": "Restriction mediated quantitative polymerase chain reactions",
+      "similarity": "Low",
+      "reason": "Focuses on primer design; not apparatus-focused"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOVEL",
+      "id": "US10604766B2",
+      "title": "Drought and heat tolerance in plants",
+      "similarity": "Very High",
+      "reason": "Core reference patent—multi-pathway approach to heat/drought tolerance"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOVEL",
+      "id": "US11046970B2",
+      "title": "DIAT gene derived from Oryza sativa controlling drought stress tolerance",
+      "similarity": "High",
+      "reason": "DIAT gene for osmotic adjustment—one of four pathway components"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOVEL",
+      "id": "US10106813B2",
+      "title": "Drought-tolerance in plants",
+      "similarity": "High",
+      "reason": "Drought-inducible promoters and tolerance factors; genetic approach"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOVEL",
+      "id": "US9957520B2",
+      "title": "Methods of increasing resistance of crop plants to heat stress",
+      "similarity": "High",
+      "reason": "Heat stress tolerance through HYR gene overexpression; heat module parallel"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOVEL",
+      "id": "US9730452B2",
+      "title": "Methods to induce drought tolerance in crops",
+      "similarity": "High",
+      "reason": "Gibberellin-mediated drought tolerance induction; complementary chemical approach"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOVEL",
+      "id": "US20160032313A1",
+      "title": "Methods of increasing resistance of crop plants to heat stress",
+      "similarity": "Medium",
+      "reason": "Heat stress breeding methodology; yield under thermal stress"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOVEL",
+      "id": "US20210017533A1",
+      "title": "DIAT gene derived from Oryza sativa controlling drought stress tolerance",
+      "similarity": "Medium",
+      "reason": "DIAT gene application in single-gene transgenic context"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOVEL",
+      "id": "US20230162296A1",
+      "title": "Method for evaluating agricultural drought",
+      "similarity": "Low",
+      "reason": "Drought assessment methodology; not germane to crop tolerance genetics"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US10604766B2",
+      "title": "Drought and heat tolerance in plants",
+      "similarity": "Very High",
+      "reason": "Directly anticipates stacked aquaporin/HSP70 approach"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US11046970B2",
+      "title": "DIAT gene derived from Oryza sativa",
+      "similarity": "High",
+      "reason": "Transgenic drought tolerance approach"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US10106813B2",
+      "title": "Drought-tolerance in plants",
+      "similarity": "High",
+      "reason": "Transgenic drought tolerance using promoters and factors"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US9957520B2",
+      "title": "Methods of increasing resistance of crop plants to heat stress",
+      "similarity": "High",
+      "reason": "Heat stress tolerance methodology"
+    },
+    {
+      "domain": "Sustainability - Climate-Resilient Agriculture",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US9730452B2",
+      "title": "Methods to induce drought tolerance in crops",
+      "similarity": "Medium",
+      "reason": "Drought tolerance approaches"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOVEL",
+      "id": "US10964228B2",
+      "title": "Educational system, method, computer program product and kit of parts",
+      "similarity": "Very High",
+      "reason": "Core reference—integrated hardware-software educational system with AR/digital components"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOVEL",
+      "id": "US9472112B2",
+      "title": "Educational construction modular unit",
+      "similarity": "High",
+      "reason": "Modular robotics building blocks for STEM learning; distributed computation"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOVEL",
+      "id": "US20210201694A1",
+      "title": "Robot educational material",
+      "similarity": "High",
+      "reason": "Educational robotics with middleware and textbook integration"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOVEL",
+      "id": "US10896621B2",
+      "title": "Educational robot",
+      "similarity": "High",
+      "reason": "Interactive educational robot with multimedia content and user engagement"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOVEL",
+      "id": "US20180053439A1",
+      "title": "Educational system, method, computer program product and kit of parts",
+      "similarity": "High",
+      "reason": "Science experimental kit with AR detection and media integration"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOVEL",
+      "id": "US20190189021A1",
+      "title": "STEM-CyLE: Science Technology Engineering and Mathematics Cyberlearning Environment",
+      "similarity": "Medium",
+      "reason": "STEM learning management system with problem-based learning environments"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOVEL",
+      "id": "US9159246B2",
+      "title": "Science, technology, engineering and mathematics based cyber security education system",
+      "similarity": "Medium",
+      "reason": "STEM education system with training, knowledge, and collaborative components"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOVEL",
+      "id": "US20240308065A1",
+      "title": "Educational soft robot kit",
+      "similarity": "Low",
+      "reason": "Soft robotics education kit; lacks adaptive/collaborative features"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US10964228B2",
+      "title": "Educational system, method, computer program product and kit of parts",
+      "similarity": "Very High",
+      "reason": "Directly anticipates modular experimental kit with media integration"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US20180053439A1",
+      "title": "Educational system, method, computer program product and kit of parts",
+      "similarity": "High",
+      "reason": "Science experimental set with AR detection and media display"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US9472112B2",
+      "title": "Educational construction modular unit",
+      "similarity": "High",
+      "reason": "Modular educational construction system"
+    },
+    {
+      "domain": "EdTech - STEM Learning Kit",
+      "related_to_case": "NOT_NOVEL",
+      "id": "US20190189021A1",
+      "title": "STEM-CyLE",
+      "similarity": "Medium",
+      "reason": "STEM learning management system"
+    }
+  ]
+}

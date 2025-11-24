@@ -1,0 +1,140 @@
+{
+  "case_type": "NOVEL",
+  "ground_truth_label": "PATENTABLE",
+  "idf_content": {
+    "TITLE_OF_INVENTION": "Portable Real-Time Nucleic Acid Quantification System with Convective Thermocycling",
+    "SEARCH_TERMS": [
+      "portable PCR",
+      "quantitative PCR apparatus",
+      "qRT-PCR device",
+      "field nucleic acid detection",
+      "convective thermocycling",
+      "real-time fluorescence detection",
+      "miniaturized thermal cycler",
+      "point-of-care diagnostics",
+      "mobile molecular testing",
+      "temperature control biomedical device"
+    ],
+    "BRIEF_OVERVIEW_LAYPERSON": "This invention addresses the need for portable DNA/RNA testing in field or remote settings. Traditional PCR equipment is large, expensive, and requires laboratory facilities. Our innovation enables real-time quantitative PCR in a portable, battery-powered device that can be operated by non-specialists.\n\nThe device uses a novel convective thermocycling approach where reagents flow through zones of different temperatures, eliminating the need for bulky heating blocks. A compact optical detection system monitors fluorescent signals in real-time, allowing users to detect and quantify target nucleic acids within minutes.\n\nThis technology addresses an unmet need for rapid diagnostics in remote areas, field research, and emergency response scenarios. Healthcare workers can now perform molecular diagnostics at the point-of-care without transporting samples to centralized laboratories.\n\nThe invention is classified as a novel process and apparatus combination. It provides benefits including: (1) mobility—enables testing anywhere, (2) speed—results in <30 minutes, (3) affordability—significantly lower equipment costs, and (4) ease of use—minimal training required.",
+    "TYPE_CLASSIFICATION": "Novel apparatus and process combination; improvement on existing thermal cycling designs",
+    "TECHNICAL_DESCRIPTION": "The apparatus comprises three core subsystems:\n\n1. Temperature Control Unit: A miniaturized heating and cooling system using Peltier elements and thermal exchangers creates discrete temperature zones (95°C for denaturation, 50-65°C for annealing, 72°C for extension). The asymmetric circulation-enabling container creates a closed-loop pathway where reagents continuously flow through these zones in a single-directional convective pattern, eliminating the need for rapid heating/cooling transitions.\n\n2. Detection Optics: A compact light source (LED or laser) excites fluorescent dyes (SYBR Green, FAM, ROX) within the flowing reagent stream. A photo-detector positioned at the optical axis captures emitted fluorescence. Real-time monitoring during each PCR cycle enables Ct (cycle threshold) determination and quantification.\n\n3. Control Electronics: A microprocessor-based system with integrated temperature sensors (thermistors) maintains target temperatures within ±0.5°C. Data acquisition occurs at 1 Hz, capturing fluorescence intensity across all PCR cycles. Wireless connectivity (Bluetooth) enables data transmission to a smartphone app for result interpretation.\n\nProof-of-concept testing demonstrates: (a) 30-minute total run time for virus detection (100 copies/µL to 10^7 copies/µL dynamic range), (b) sensitivity equivalent to bench-top qPCR instruments, (c) battery operation >50 cycles on single charge, (d) device weight <2 kg.",
+    "SUPPORTING_DATA": "Validation experiments show 99.2% correlation (R²=0.99) between portable device Ct values and conventional thermal cycler results across viral targets (SARS-CoV-2, Influenza). Clinical pilot study with 150 nasopharyngeal swabs achieved 96.8% sensitivity and 98.1% specificity vs. laboratory reference standard.",
+    "PRIOR_FINDINGS": "Existing approaches include: (1) Fixed thermal cycler labs—established but immobile, (2) Traditional portable PCR—requires cooling water circulation, heavy batteries, (3) Microfluidic PCR chips—emerging but lack real-time quantification.\n\nKey innovations vs. prior art: Our convective thermocycling eliminates mechanical thermal cycling, reducing power consumption by 60%. Real-time detection integrated into portable format addresses a gap left by existing microfluidic solutions that lack quantitative capability in mobile formats.",
+    "STAGE_OF_DEVELOPMENT": "Current Status: Laboratory prototype tested with clinical samples. The device successfully performs qPCR and qRT-PCR on 50 different targets.\n\nDevelopment Completed: Thermal control algorithm refined through 200+ test runs; optical detection calibrated for multiple fluorophores; wireless data transmission validated.\n\nRemaining Work: (1) Reagent formulation optimization for room-temperature storage, (2) User interface refinement for field operators, (3) Regulatory pathway assessment for clinical diagnostics, (4) Manufacturing scale-up to assess production costs.",
+    "POTENTIAL_LICENSEES": [
+      "Point-of-care diagnostic manufacturers (e.g., bioMérieux, Cepheid, Quidel)",
+      "Global health organizations requiring field diagnostics",
+      "Agricultural biotech firms for pathogen detection",
+      "Military/biosecurity applications",
+      "Veterinary diagnostic companies"
+    ],
+    "PUBLICATIONS_DISCLOSURES": "Three conference presentations: (1) American Society Microbiology Meeting, 2017, poster; (2) SLAS Conference 2017, oral presentation; (3) Technical whitepaper submitted to Lab on a Chip journal (under review).",
+    "DATES_CONCEPTION_REDUCTION": {
+      "CONCEPTION_DATE": "2016-03-15",
+      "CONCEPTION_EVIDENCE": "Laboratory notebook entries dated March 15, 2016 describing thermocycling concept and initial thermal modeling",
+      "FIRST_REDUCTION_TO_PRACTICE": "2016-08-20",
+      "REDUCTION_EVIDENCE": "Functional prototype tested with simulated targets; PCR amplification confirmed with conventional post-run gel electrophoresis"
+    },
+    "SPONSORSHIP": [
+      {
+        "SPONSOR": "National Institutes of Health",
+        "GRANT_NUMBER": "R43EB020123",
+        "AMOUNT": "$225,000 (Phase I SBIR)",
+        "REPORTING_OBLIGATIONS": "Annual progress reports required; device performance metrics tracked"
+      },
+      {
+        "SPONSOR": "Biomedical Advanced Research and Development Authority (BARDA)",
+        "GRANT_NUMBER": "HHSO100201300007C",
+        "AMOUNT": "$1.2 Million (Phase II Development)",
+        "REPORTING_OBLIGATIONS": "Quarterly technical reports; regulatory compliance documentation"
+      }
+    ],
+    "OTHER_AGREEMENTS": [
+      "Material Transfer Agreement with Cornell University (validated reagent kits)",
+      "Co-development agreement with point-of-care device manufacturer pending license negotiation"
+    ],
+    "INVENTORS": [
+      {
+        "NAME": "Dr. Stephen Chang-Chi Kao",
+        "CITIZENSHIP": "Taiwan",
+        "DEPARTMENT": "Biomedical Engineering",
+        "POSITION": "Senior Research Scientist",
+        "EMAIL": "s.kao@credo-biomedical.com",
+        "PHONE": "+886-2-2345-6789",
+        "PRIMARY_CONTACT": true,
+        "ADDRESS": "Taipei, Taiwan"
+      },
+      {
+        "NAME": "Winston Wong Jr.",
+        "CITIZENSHIP": "United States",
+        "DEPARTMENT": "Product Development",
+        "POSITION": "Principal Engineer",
+        "EMAIL": "w.wong@credo-biomedical.com",
+        "PHONE": "+1-650-555-0199",
+        "PRIMARY_CONTACT": false,
+        "ADDRESS": "San Jose, California, USA"
+      },
+      {
+        "NAME": "Ying-Ta Lai",
+        "CITIZENSHIP": "Singapore",
+        "DEPARTMENT": "Optical Systems",
+        "POSITION": "Hardware Specialist",
+        "EMAIL": "y.lai@credo-biomedical.com",
+        "PHONE": "+65-6234-5678",
+        "PRIMARY_CONTACT": false,
+        "ADDRESS": "Singapore"
+      }
+    ],
+    "IP_GUIDELINES_AGREEMENT": "All inventors acknowledge agreement with institutional IP policies and commit to patent application prosecution and licensing activities as directed."
+  },
+  "relevant_prior_art": [
+    {
+      "id": "US10947588B2",
+      "title": "Restriction mediated quantitative polymerase chain reactions",
+      "similarity": "High",
+      "reason": "Quantitative PCR primer technology, similar fluorescence-based detection paradigm"
+    },
+    {
+      "id": "US20170282178A1",
+      "title": "Portable QPCR and QRT-PCR Apparatus",
+      "similarity": "Very High",
+      "reason": "Directly addresses portable qPCR with uni-directional convective approach—core reference"
+    },
+    {
+      "id": "US9533308B2",
+      "title": "PC board-based polymerase chain reaction systems",
+      "similarity": "High",
+      "reason": "Miniaturized PCR on printed circuit boards; integrated thermal control"
+    },
+    {
+      "id": "US20180258465A1",
+      "title": "Methods and Devices for Performing Real Time Digital PCR",
+      "similarity": "High",
+      "reason": "Real-time PCR detection with multiple independent mini-reactors"
+    },
+    {
+      "id": "US9592510B2",
+      "title": "Real-time PCR in micro-channels",
+      "similarity": "Medium",
+      "reason": "Continuous-flow thermocycling in microfluidic channels; real-time fluorescence monitoring"
+    },
+    {
+      "id": "US20130177913A1",
+      "title": "Real-time PCR in micro-channels",
+      "similarity": "Medium",
+      "reason": "Microfluidic PCR with temperature cycling and real-time detection"
+    },
+    {
+      "id": "US8427643B2",
+      "title": "Real-time PCR monitoring apparatus",
+      "similarity": "Medium",
+      "reason": "Real-time fluorescence detection apparatus; optical design considerations"
+    },
+    {
+      "id": "US20100085570A1",
+      "title": "Real-time PCR monitoring apparatus",
+      "similarity": "Low",
+      "reason": "Fluorescence detection for PCR; optical filtering but lacks portability focus"
+    }
+  ]
+}
