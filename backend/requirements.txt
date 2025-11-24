@@ -1,0 +1,39 @@
+# Core FastAPI dependencies
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.6
+pydantic>=2.10.0
+pydantic-settings>=2.6.0
+
+# Database
+sqlalchemy>=2.0.23
+alembic>=1.12.1
+
+# Document parsing
+PyPDF2==3.0.1
+python-docx==1.1.0
+
+# PDF generation
+reportlab==4.0.7
+
+# HTTP requests
+requests==2.31.0
+httpx>=0.27.0  # Updated for ibm-watsonx-ai compatibility
+
+# AI/ML dependencies
+ibm-watsonx-ai>=1.4.7
+# ibm-watsonx-orchestrate>=1.15.0  # Commented out - causes dependency conflicts in Docker
+numpy>=2.3.0
+pandas>=2.2.0
+# sentence-transformers>=2.2.0
+# transformers>=4.30.0
+# nltk>=3.8
+# spacy>=3.5.0
+# scikit-learn>=1.3.0
+
+# Utilities
+python-dotenv==1.0.0
+
+# Authentication
+pyjwt[crypto]>=2.8.0
+cryptography>=43.0.0

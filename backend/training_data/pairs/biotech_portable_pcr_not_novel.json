@@ -1,0 +1,92 @@
+{
+  "case_type": "NOT_NOVEL",
+  "ground_truth_label": "REJECT",
+  "idf_content": {
+    "TITLE_OF_INVENTION": "Compact Convective Thermal Cycler with Integrated Real-Time Fluorescence Detection for Portable PCR Applications",
+    "SEARCH_TERMS": [
+      "convective PCR apparatus",
+      "uni-directional flow thermocycler",
+      "portable quantitative PCR",
+      "field-deployable qRT-PCR",
+      "asymmetric circulation chamber",
+      "integrated fluorescence detection PCR",
+      "mobile qPCR device",
+      "continuous-flow temperature zones",
+      "handheld nucleic acid amplification",
+      "point-of-care qPCR"
+    ],
+    "BRIEF_OVERVIEW_LAYPERSON": "This application discloses an apparatus for portable quantitative PCR that uses a convective thermocycling chamber with uni-directional flow. The apparatus is substantially similar to existing portable qPCR devices already in the literature and patent databases.\n\nThe device incorporates an asymmetric circulation-enabling container where reagents circulate through different temperature zones in a single-directional pathway. Temperature control uses conventional Peltier-based heating/cooling elements. Real-time monitoring of fluorescence signals during PCR cycles enables Ct determination.\n\nHowever, these core technical features—convective thermocycling, portable form factor, real-time fluorescence detection, and asymmetric circulation—are substantially disclosed in prior art, particularly in US Patent 20170282178A1 (CREDO Biomedical, filed 2015).\n\nThe present application addresses portable diagnostics but lacks sufficient distinction from existing solutions.",
+    "TYPE_CLASSIFICATION": "Apparatus improvement—combination of known elements (convective thermocycling, portable optics, Peltier control)",
+    "TECHNICAL_DESCRIPTION": "The apparatus uses a substantially similar architecture to prior art:\n\n1. Asymmetric Circulation Chamber: Closed-loop container with inlet/outlet ports; reagents flow through defined temperature zones (95°C denaturation, 55°C annealing, 72°C extension). This is substantially identical to US20170282178A1.\n\n2. Heating/Cooling System: Peltier-based temperature control with conventional thermistor sensors (±0.5°C accuracy). This thermal control approach is standard in the art and disclosed in multiple prior patents including US9533308B2.\n\n3. Detection Optics: Light source (LED/laser) and photodetector with standard band-pass filters for fluorophore detection (SYBR Green, FAM). Real-time Ct determination using threshold-crossing methodology—a well-established technique (disclosed in US20100085570A1, US8427643B2).\n\n4. Data Acquisition: Microprocessor with 1 Hz sampling rate; Bluetooth wireless transmission. These are routine engineering implementations.",
+    "SUPPORTING_DATA": "Experimental results show 30-minute run times and Ct values within 0.5 cycles of conventional instruments. However, this level of performance is already achieved and documented in cited prior art (US20170282178A1).",
+    "PRIOR_FINDINGS": "Critical Prior Art References:\n• US20170282178A1 (Credo Biomedical): 'Portable qPCR and QRT-PCR apparatus' - discloses uni-directional convective qPCR with identical asymmetric circulation chamber design\n• US9533308B2: PC board-based PCR with integrated thermal control—miniaturized thermocycling on printed circuit boards\n• US20180258465A1: Real-time digital PCR with multiple mini-reactors and independent temperature control\n• US9592510B2: Continuous-flow microfluidic PCR with real-time monitoring\n\nThe present application's core innovations—convective thermocycling, integrated real-time detection, portable form factor—are all disclosed in these prior references, individually or in obvious combination.",
+    "STAGE_OF_DEVELOPMENT": "Status: Laboratory prototype. Testing limited to simulated targets in controlled conditions.\n\nOutstanding Work: Extensive field validation, regulatory assessment, and manufacturing feasibility studies remain incomplete. No clinical validation data provided.",
+    "POTENTIAL_LICENSEES": "Not applicable given prior art landscape.",
+    "PUBLICATIONS_DISCLOSURES": "No publications to date. Technology disclosed only within this application.",
+    "DATES_CONCEPTION_REDUCTION": {
+      "CONCEPTION_DATE": "2017-09-01",
+      "CONCEPTION_EVIDENCE": "Laboratory notebook dated September 1, 2017",
+      "FIRST_REDUCTION_TO_PRACTICE": "2017-11-15",
+      "REDUCTION_EVIDENCE": "Functional prototype tested with PCR amplification confirmed"
+    },
+    "SPONSORSHIP": "No external funding identified.",
+    "OTHER_AGREEMENTS": "None identified.",
+    "INVENTORS": [
+      {
+        "NAME": "Dr. Robert Chen",
+        "CITIZENSHIP": "United States",
+        "DEPARTMENT": "Biotech R&D",
+        "POSITION": "Research Engineer",
+        "EMAIL": "r.chen@example-biotech.com",
+        "PHONE": "+1-510-555-0123",
+        "PRIMARY_CONTACT": true,
+        "ADDRESS": "Berkeley, California, USA"
+      }
+    ],
+    "IP_GUIDELINES_AGREEMENT": "Inventor acknowledges agreement with IP policies."
+  },
+  "relevant_prior_art": [
+    {
+      "id": "US20170282178A1",
+      "title": "Portable QPCR and QRT-PCR Apparatus",
+      "similarity": "Very High",
+      "reason": "Core reference—substantially identical convective PCR apparatus with real-time detection"
+    },
+    {
+      "id": "US9533308B2",
+      "title": "PC board-based polymerase chain reaction systems",
+      "similarity": "High",
+      "reason": "Miniaturized PCR with integrated thermal control elements"
+    },
+    {
+      "id": "US20180258465A1",
+      "title": "Methods and Devices for Performing Real Time Digital PCR",
+      "similarity": "High",
+      "reason": "Real-time PCR with temperature-controlled mini-reactors"
+    },
+    {
+      "id": "US9592510B2",
+      "title": "Real-time PCR in micro-channels",
+      "similarity": "High",
+      "reason": "Continuous-flow PCR with temperature zones and real-time monitoring"
+    },
+    {
+      "id": "US20100085570A1",
+      "title": "Real-time PCR monitoring apparatus",
+      "similarity": "Medium",
+      "reason": "Real-time PCR optical detection system design"
+    },
+    {
+      "id": "US8427643B2",
+      "title": "Real-time PCR monitoring apparatus",
+      "similarity": "Medium",
+      "reason": "Apparatus for real-time PCR with fluorescence detection"
+    },
+    {
+      "id": "US10947588B2",
+      "title": "Restriction mediated quantitative polymerase chain reactions",
+      "similarity": "Low",
+      "reason": "Focuses on primer design; not apparatus-focused"
+    }
+  ]
+}
