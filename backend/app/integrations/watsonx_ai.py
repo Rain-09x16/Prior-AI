@@ -68,8 +68,11 @@ class WatsonxAI:
         self.model = None
         self.use_stub = False
 
-        if not self.api_key or not self.project_id or not WATSONX_AVAILABLE:
-            logger.warning("WATSONX_API_KEY or PROJECT_ID not set, or SDK not installed - using stub implementation")
+        if not self.api_key or not self.project_id:
+            logger.warning("WATSONX_API_KEY or PROJECT_ID not set - using stub implementation")
+            self.use_stub = True
+        elif not WATSONX_AVAILABLE:
+            logger.warning("ibm-watsonx-ai SDK not installed - using stub implementation. Install with: pip install ibm-watsonx-ai")
             self.use_stub = True
         else:
             try:
@@ -114,24 +117,21 @@ class WatsonxAI:
             Generated text from the model
         """
         if self.use_stub or not self.model:
-            logger.info(f"Generating text with prompt length: {len(prompt)} chars (STUB)")
+            logger.info(f"Generating text with prompt length: {len(prompt)} chars (STUB - no API available)")
             return self._stub_generate(prompt)
 
         try:
-            logger.info(f"Generating text with watsonx.ai, prompt length: {len(prompt)} chars")
+            logger.info(f"Generating text with watsonx.ai model={self.model_id}, prompt length: {len(prompt)} chars")
 
-            # Update model parameters for this generation
-            self.model.params["max_new_tokens"] = max_tokens
-            self.model.params["temperature"] = temperature
-
-            # Call watsonx.ai API
+            # Call watsonx.ai API with correct parameters
+            # Note: ModelInference expects different parameter names than we initially tried
             response = self.model.generate_text(prompt=prompt)
 
             logger.info(f"Successfully generated {len(response)} chars from watsonx.ai")
-            return response
+            return response.strip()
 
         except Exception as e:
-            logger.error(f"Error generating text from watsonx.ai: {e}")
+            logger.error(f"Error generating text from watsonx.ai: {str(e)}")
             logger.warning("Falling back to stub implementation")
             return self._stub_generate(prompt)
 
