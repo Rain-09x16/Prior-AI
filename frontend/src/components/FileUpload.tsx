@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Upload, FileText, X } from 'lucide-react';
+import { Upload, FileText, X, Loader2, Sparkles } from 'lucide-react';
 import { formatFileSize } from '@/lib/utils';
 
 interface FileUploadProps {
@@ -64,66 +64,86 @@ export function FileUpload({
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full">
       {/* Dropzone */}
       <div
         {...getRootProps()}
-        className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all ${
-          isDragActive
-            ? 'border-blue-500 bg-blue-50 scale-[1.02]'
-            : 'border-gray-300 hover:border-blue-400 bg-white hover:bg-gray-50'
-        }`}
+        className={`dropzone relative overflow-hidden ${
+          isDragActive ? 'active' : ''
+        } ${selectedFile ? 'border-primary' : ''}`}
       >
         <input {...getInputProps()} />
-        <Upload className="h-12 w-12 mx-auto text-gray-400 mb-4" />
-        {isDragActive ? (
-          <p className="text-lg text-blue-600">Drop the file here...</p>
-        ) : (
-          <>
-            <p className="text-lg text-gray-700 mb-2">
-              Drag and drop your disclosure document here
-            </p>
-            <p className="text-sm text-gray-500">
-              or click to browse (PDF or DOCX, max {formatFileSize(maxSize)})
-            </p>
-          </>
-        )}
+
+        {/* Background pattern */}
+        <div className="absolute inset-0 hero-grid opacity-20 pointer-events-none" />
+
+        <div className="relative">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6 mx-auto">
+            <Upload className={`w-8 h-8 ${isDragActive ? 'text-primary animate-pulse' : 'text-foreground-muted'}`} />
+          </div>
+
+          {isDragActive ? (
+            <div className="animate-fade-in">
+              <p className="text-xl font-semibold text-primary mb-2">Drop your file here</p>
+              <p className="text-sm text-foreground-muted">Release to upload</p>
+            </div>
+          ) : (
+            <>
+              <p className="text-lg font-semibold text-foreground mb-2">
+                Drag and drop your disclosure document
+              </p>
+              <p className="text-sm text-foreground-muted mb-4">
+                or click to browse
+              </p>
+              <div className="flex items-center justify-center gap-3">
+                <span className="badge badge-neutral badge-pill">PDF</span>
+                <span className="badge badge-neutral badge-pill">DOCX</span>
+                <span className="badge badge-neutral badge-pill">Max {formatFileSize(maxSize)}</span>
+              </div>
+            </>
+          )}
+        </div>
       </div>
 
       {/* Selected file preview */}
       {selectedFile && (
-        <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 animate-fade-in">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <FileText className="h-8 w-8 text-blue-600" />
+        <div className="mt-6 p-5 rounded-xl bg-background-secondary border border-border animate-fade-in">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <FileText className="w-6 h-6 text-primary" />
+              </div>
               <div>
-                <p className="font-medium text-gray-900">{selectedFile.name}</p>
-                <p className="text-sm text-gray-500">
+                <p className="font-semibold text-foreground">{selectedFile.name}</p>
+                <p className="text-sm text-foreground-muted">
                   {formatFileSize(selectedFile.size)}
                 </p>
               </div>
             </div>
             <button
               onClick={clearFile}
-              className="p-2 hover:bg-gray-200 rounded-lg transition-colors"
+              className="btn btn-ghost btn-sm"
               disabled={isUploading}
             >
-              <X className="h-5 w-5 text-gray-500" />
+              <X className="w-5 h-5" />
             </button>
           </div>
 
           <button
             onClick={handleUpload}
             disabled={isUploading}
-            className="mt-4 w-full bg-blue-600 text-white py-3.5 px-6 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all min-h-[44px] shadow-sm hover:shadow-md flex items-center justify-center gap-2"
+            className="btn btn-gradient w-full"
           >
             {isUploading ? (
               <>
-                <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
-                <span>Uploading...</span>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                <span>Analyzing...</span>
               </>
             ) : (
-              'Start Analysis'
+              <>
+                <Sparkles className="w-5 h-5" />
+                <span>Start Analysis</span>
+              </>
             )}
           </button>
         </div>
@@ -131,8 +151,8 @@ export function FileUpload({
 
       {/* Error message */}
       {error && (
-        <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 animate-fade-in">
-          {error}
+        <div className="mt-4 p-4 rounded-xl alert alert-error animate-fade-in">
+          <span>{error}</span>
         </div>
       )}
     </div>

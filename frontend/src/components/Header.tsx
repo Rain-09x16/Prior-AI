@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
-import { FileText, Upload, List, LogIn } from 'lucide-react';
+import { Zap, Upload, BarChart3, ArrowRight } from 'lucide-react';
 
 export function Header() {
   const pathname = usePathname();
@@ -11,41 +11,46 @@ export function Header() {
   const isPublic = pathname === '/';
 
   return (
-    <header className="border-b-2 border-gray-200 bg-white sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-18">
-          <Link href="/" className="flex items-center space-x-3 hover:opacity-90 transition-all group">
-            <div className="p-2 bg-blue-600 rounded-lg group-hover:bg-blue-700 transition-colors">
-              <FileText className="h-6 w-6 text-white" />
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/80 backdrop-blur-xl">
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-[var(--primary)] blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
+              <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] shadow-lg">
+                <Zap className="w-5 h-5 text-white" />
+              </div>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-xl text-gray-900 leading-tight">VANTAGE</span>
-              <span className="text-xs text-gray-500 font-medium">TTO Operating System</span>
+              <span className="text-lg font-bold text-[var(--foreground)] tracking-tight">
+                VANTAGE
+              </span>
+              <span className="text-[10px] font-medium text-[var(--foreground-muted)] tracking-wider uppercase">
+                TTO Operating System
+              </span>
             </div>
           </Link>
 
+          {/* Navigation */}
           <div className="flex items-center gap-1">
             {!isPublic && (
-              <nav className="flex items-center gap-1 mr-4">
+              <nav className="hidden md:flex items-center gap-1 mr-6">
                 <SignedIn>
                   <Link
                     href="/dashboard"
-                    className={`flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all font-medium min-h-10 ${
-                      isActive('/dashboard') ? 'bg-blue-100 text-blue-700 shadow-sm' : 'text-gray-600 hover:bg-gray-100'
-                    }`}
+                    className={`nav-pill ${isActive('/dashboard') ? 'active' : ''}`}
                   >
-                    <Upload className="h-4 w-4" />
+                    <Upload className="w-4 h-4" />
                     <span>Upload</span>
                   </Link>
 
                   <Link
                     href="/analyses"
-                    className={`flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all font-medium min-h-10 ${
-                      isActive('/analyses') ? 'bg-blue-100 text-blue-700 shadow-sm' : 'text-gray-600 hover:bg-gray-100'
-                    }`}
+                    className={`nav-pill ${isActive('/analyses') ? 'active' : ''}`}
                   >
-                    <List className="h-4 w-4" />
-                    <span>All Analyses</span>
+                    <BarChart3 className="w-4 h-4" />
+                    <span>Analyses</span>
                   </Link>
                 </SignedIn>
               </nav>
@@ -53,9 +58,9 @@ export function Header() {
 
             <SignedOut>
               <SignInButton mode="modal">
-                <button className="flex items-center gap-2 px-5 py-2.5 text-gray-700 hover:bg-gray-100 rounded-lg transition-all font-medium min-h-10 border-2 border-transparent hover:border-gray-200">
-                  <LogIn className="h-4 w-4" />
-                  <span>Sign In</span>
+                <button className="btn btn-primary btn-sm group">
+                  <span>Get Started</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </SignInButton>
             </SignedOut>
@@ -65,7 +70,11 @@ export function Header() {
                 afterSignOutUrl="/"
                 appearance={{
                   elements: {
-                    avatarBox: "h-9 w-9"
+                    avatarBox: "w-9 h-9 ring-2 ring-[var(--border)] ring-offset-2 ring-offset-[var(--background)]",
+                    userButtonPopoverCard: "bg-[var(--background-secondary)] border border-[var(--border)]",
+                    userButtonPopoverActions: "bg-[var(--background-secondary)]",
+                    userButtonPopoverActionButton: "hover:bg-[var(--surface)]",
+                    userButtonPopoverFooter: "hidden"
                   }
                 }}
               />

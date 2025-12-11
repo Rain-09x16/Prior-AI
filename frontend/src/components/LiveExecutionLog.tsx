@@ -130,42 +130,42 @@ export default function LiveExecutionLog({ isProcessing, currentStep = 0 }: Live
   }
 
   return (
-    <div className="bg-black rounded-lg p-6 font-mono text-sm">
+    <div className="terminal">
       {/* Terminal Header */}
       <div className="flex items-center mb-4">
         <div className="flex gap-2">
-          <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          <div className="w-3 h-3 bg-error rounded-full"></div>
+          <div className="w-3 h-3 bg-warning rounded-full"></div>
+          <div className="w-3 h-3 bg-success rounded-full"></div>
         </div>
-        <div className="ml-4 text-gray-400">VANTAGE Orchestration Console v1.0</div>
+        <div className="ml-4 text-foreground-muted text-sm">VANTAGE Orchestration Console v1.0</div>
       </div>
 
       {/* Logs */}
-      <div className="space-y-2 max-h-96 overflow-y-auto">
-        <div className="text-green-400">
+      <div className="space-y-2 max-h-96 overflow-y-auto terminal-scrollbar">
+        <div className="text-success">
           ═══════════════════════════════════════════════════════════
         </div>
-        <div className="text-yellow-400">
+        <div className="text-warning">
           [SYSTEM] IBM watsonx Orchestrate - Multi-Agent Coordination Active
         </div>
-        <div className="text-green-400">
+        <div className="text-success">
           ═══════════════════════════════════════════════════════════
         </div>
 
         {logs.map((log, index) => (
           <div key={index} className="flex items-start gap-2 animate-fade-in">
-            <span className="text-gray-500">[{log.timestamp}]</span>
+            <span className="text-foreground-muted opacity-60">[{log.timestamp}]</span>
             <span>{log.icon}</span>
-            <span className={log.type === 'success' ? 'text-green-400' : 'text-blue-400'}>
+            <span className={log.type === 'success' ? 'text-success' : 'text-info'}>
               {log.text}
             </span>
           </div>
         ))}
 
         {isProcessing && stepIndex < executionSteps.length && (
-          <div className="flex items-center gap-2 text-yellow-400 processing-indicator">
-            <span>▶</span>
+          <div className="flex items-center gap-2 text-warning">
+            <span className="animate-pulse">▶</span>
             <span>Processing...</span>
           </div>
         )}

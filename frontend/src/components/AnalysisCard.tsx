@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { FileText, Trash2, Download, Eye, CheckCircle2, AlertTriangle } from 'lucide-react';
-import { formatRelativeTime, getStatusColor, getRecommendationColor } from '@/lib/utils';
+import { FileText, Trash2, Eye, CheckCircle2, AlertTriangle, Loader2, XCircle } from 'lucide-react';
+import { formatRelativeTime } from '@/lib/utils';
 import type { Analysis } from '@/lib/types';
 
 interface AnalysisCardProps {
@@ -18,47 +18,69 @@ export function AnalysisCard({ analysis, onDelete }: AnalysisCardProps) {
     }
   };
 
+  const getStatusBadge = () => {
+    switch (analysis.status) {
+      case 'processing':
+        return (
+          <span className="badge badge-info badge-pill">
+            <Loader2 className="w-3 h-3 animate-spin" />
+            Processing
+          </span>
+        );
+      case 'completed':
+        return (
+          <span className="badge badge-success badge-pill">
+            <CheckCircle2 className="w-3 h-3" />
+            Completed
+          </span>
+        );
+      case 'failed':
+        return (
+          <span className="badge badge-error badge-pill">
+            <XCircle className="w-3 h-3" />
+            Failed
+          </span>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <Link href={`/analyses/${analysis.id}`}>
-      <div className="block p-6 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-300 hover:shadow-xl transition-all cursor-pointer animate-fade-in transform hover:-translate-y-1">
+      <div className="card-interactive p-6 h-full animate-fade-in group">
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
-          <div className="flex-1">
-            <div className="flex items-center space-x-3 mb-2">
-              <FileText className="h-5 w-5 text-blue-600" />
-              <h3 className="text-lg font-semibold text-gray-900 line-clamp-1">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <FileText className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground line-clamp-1 group-hover:text-primary transition-colors">
                 {analysis.title}
               </h3>
             </div>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-foreground-muted pl-13">
               {analysis.disclosure.filename} • {formatRelativeTime(analysis.createdAt)}
             </p>
           </div>
-
-          {/* Status badge */}
-          <span
-            className={`px-3 py-1.5 text-xs font-semibold rounded-full border-2 ${getStatusColor(
-              analysis.status
-            )}`}
-          >
-            {analysis.status.charAt(0).toUpperCase() + analysis.status.slice(1)}
-          </span>
+          {getStatusBadge()}
         </div>
 
-        {/* NEW: Patentability Badge (v2.1) */}
+        {/* Patentability Badge (v2.1) */}
         {analysis.status === 'completed' && analysis.patentabilityAssessment && (
-          <div className="mb-3">
+          <div className="mb-4">
             {analysis.patentabilityAssessment.isPatentable ? (
-              <div className="flex items-center space-x-2 px-4 py-2.5 bg-green-50 border-2 border-green-300 rounded-lg">
-                <CheckCircle2 className="h-5 w-5 text-green-600" />
-                <span className="text-sm font-semibold text-green-900">
+              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-success/10 border border-success/30">
+                <CheckCircle2 className="w-5 h-5 text-success" />
+                <span className="text-sm font-semibold text-success">
                   Patentable ({analysis.patentabilityAssessment.confidence.toFixed(0)}% confidence)
                 </span>
               </div>
             ) : (
-              <div className="flex items-center space-x-2 px-4 py-2.5 bg-red-50 border-2 border-red-300 rounded-lg">
-                <AlertTriangle className="h-5 w-5 text-red-600" />
-                <span className="text-sm font-semibold text-red-900">
+              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-error/10 border border-error/30">
+                <AlertTriangle className="w-5 h-5 text-error" />
+                <span className="text-sm font-semibold text-error">
                   Publishable Only ({analysis.patentabilityAssessment.confidence.toFixed(0)}% confidence)
                 </span>
               </div>
@@ -68,28 +90,28 @@ export function AnalysisCard({ analysis, onDelete }: AnalysisCardProps) {
 
         {/* Results (if completed) */}
         {analysis.status === 'completed' && (
-          <div className="space-y-3">
+          <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               {/* Novelty Score */}
               {analysis.noveltyScore !== undefined && (
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
-                  <p className="text-xs font-medium text-gray-700 mb-1">Novelty Score</p>
-                  <p className="text-3xl font-bold text-blue-600">
+                <div className="p-4 rounded-xl bg-background-tertiary border border-border">
+                  <p className="text-xs font-medium text-foreground-muted mb-1">Novelty Score</p>
+                  <p className="text-2xl font-bold text-primary">
                     {analysis.noveltyScore.toFixed(1)}
-                    <span className="text-base font-normal text-gray-500">/100</span>
+                    <span className="text-sm font-normal text-foreground-muted">/100</span>
                   </p>
                 </div>
               )}
 
               {/* Recommendation */}
               {analysis.recommendation && (
-                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                  <p className="text-xs font-medium text-gray-700 mb-2">Recommendation</p>
-                  <span
-                    className={`inline-block px-3 py-1.5 text-sm font-bold rounded-md border-2 ${getRecommendationColor(
-                      analysis.recommendation
-                    )}`}
-                  >
+                <div className="p-4 rounded-xl bg-background-tertiary border border-border">
+                  <p className="text-xs font-medium text-foreground-muted mb-2">Recommendation</p>
+                  <span className={`badge badge-pill ${
+                    analysis.recommendation === 'pursue' ? 'badge-success' :
+                    analysis.recommendation === 'reconsider' ? 'badge-warning' :
+                    'badge-error'
+                  }`}>
                     {analysis.recommendation.toUpperCase()}
                   </span>
                 </div>
@@ -98,7 +120,7 @@ export function AnalysisCard({ analysis, onDelete }: AnalysisCardProps) {
 
             {/* Patents found */}
             {analysis.patents && analysis.patents.length > 0 && (
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-foreground-muted">
                 Found {analysis.patents.length} similar patent{analysis.patents.length !== 1 ? 's' : ''}
               </p>
             )}
@@ -107,33 +129,35 @@ export function AnalysisCard({ analysis, onDelete }: AnalysisCardProps) {
 
         {/* Processing status */}
         {analysis.status === 'processing' && (
-          <div className="flex items-center space-x-2 text-blue-600">
-            <div className="animate-spin h-4 w-4 border-2 border-blue-600 border-t-transparent rounded-full" />
-            <span className="text-sm">Analyzing disclosure...</span>
+          <div className="flex items-center gap-3 p-4 rounded-xl bg-info/10 border border-info/30">
+            <div className="processing-ring w-5 h-5" />
+            <span className="text-sm text-info font-medium">Analyzing disclosure...</span>
           </div>
         )}
 
         {/* Failed status */}
         {analysis.status === 'failed' && (
-          <div className="text-red-600 text-sm">
-            Analysis failed. Please try again.
+          <div className="p-4 rounded-xl bg-error/10 border border-error/30">
+            <p className="text-sm text-error font-medium">
+              Analysis failed. Please try again.
+            </p>
           </div>
         )}
 
         {/* Actions */}
-        <div className="mt-4 pt-4 border-t border-gray-200 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Eye className="h-4 w-4 text-gray-400" />
-            <span className="text-sm text-gray-600">View details</span>
+        <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+          <div className="flex items-center gap-2 text-foreground-muted group-hover:text-primary transition-colors">
+            <Eye className="w-4 h-4" />
+            <span className="text-sm font-medium">View details</span>
           </div>
 
           {onDelete && (
             <button
               onClick={handleDelete}
-              className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+              className="btn btn-danger btn-sm opacity-0 group-hover:opacity-100 transition-opacity"
               title="Delete analysis"
             >
-              <Trash2 className="h-4 w-4" />
+              <Trash2 className="w-4 h-4" />
             </button>
           )}
         </div>

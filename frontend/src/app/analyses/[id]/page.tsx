@@ -14,6 +14,9 @@ import {
   CheckCircle2,
   XCircle,
   TrendingUp,
+  Tag,
+  Lightbulb,
+  BookOpen,
 } from 'lucide-react';
 import {
   formatDateTime,
@@ -63,9 +66,10 @@ export default function AnalysisDetailsPage() {
 
   if (isLoading && !currentAnalysis) {
     return (
-      <div className="container mx-auto px-4 py-16">
-        <div className="flex items-center justify-center">
-          <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="processing-ring w-12 h-12 mx-auto mb-4" />
+          <p className="text-foreground-muted">Loading analysis...</p>
         </div>
       </div>
     );
@@ -73,14 +77,16 @@ export default function AnalysisDetailsPage() {
 
   if (error && !currentAnalysis) {
     return (
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-2xl mx-auto text-center">
-          <AlertCircle className="h-16 w-16 text-red-600 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Error Loading Analysis</h2>
-          <p className="text-gray-600 mb-6">{error}</p>
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="max-w-md mx-auto text-center p-8">
+          <div className="w-16 h-16 rounded-2xl bg-error/10 flex items-center justify-center mx-auto mb-4">
+            <AlertCircle className="h-8 w-8 text-error" />
+          </div>
+          <h2 className="text-2xl font-bold text-foreground mb-2">Error Loading Analysis</h2>
+          <p className="text-foreground-muted mb-6">{error}</p>
           <button
             onClick={() => router.push('/analyses')}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="btn btn-primary"
           >
             Back to Analyses
           </button>
@@ -91,9 +97,9 @@ export default function AnalysisDetailsPage() {
 
   if (!currentAnalysis) {
     return (
-      <div className="container mx-auto px-4 py-16">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-600">Analysis not found</p>
+          <p className="text-foreground-muted">Analysis not found</p>
         </div>
       </div>
     );
@@ -102,231 +108,251 @@ export default function AnalysisDetailsPage() {
   const { status, title, disclosure, extractedClaims, patents, noveltyScore, recommendation, reasoning } = currentAnalysis;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-      {/* Back button */}
-      <button
-        onClick={() => router.push('/analyses')}
-        className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 mb-6"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        <span>Back to all analyses</span>
-      </button>
-
-      {/* Header */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex-1">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{title}</h1>
-            <div className="flex items-center space-x-4 text-sm text-gray-600">
-              <span className="flex items-center space-x-1">
-                <FileText className="h-4 w-4" />
-                <span>{disclosure.filename}</span>
-              </span>
-              <span>{formatDateTime(disclosure.uploadedAt)}</span>
-            </div>
-          </div>
-
-          {status === 'completed' && (
-            <button
-              onClick={handleGenerateReport}
-              disabled={isGeneratingReport}
-              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
-            >
-              {isGeneratingReport ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <Download className="h-4 w-4" />
-              )}
-              <span>Download Report</span>
-            </button>
-          )}
-        </div>
-
-        {/* Status indicator */}
-        {status === 'processing' && (
-          <div className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <Loader2 className="h-5 w-5 animate-spin text-blue-600" />
-            <div>
-              <p className="font-medium text-blue-900">Analysis in progress...</p>
-              <p className="text-sm text-blue-700">
-                This may take a few minutes. The page will update automatically.
-              </p>
-            </div>
-          </div>
-        )}
-
-        {status === 'failed' && (
-          <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200">
-            <XCircle className="h-5 w-5 text-red-600" />
-            <div>
-              <p className="font-medium text-red-900">Analysis failed</p>
-              <p className="text-sm text-red-700">{reasoning || 'An error occurred during analysis'}</p>
-            </div>
-          </div>
-        )}
+    <div className="min-h-screen bg-background">
+      {/* Hero gradient background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
       </div>
 
-      {/* Results (if completed) */}
-      {status === 'completed' && (
-        <>
-          {/* NEW: Patentability Assessment Alert (v2.1) */}
-          {currentAnalysis.patentabilityAssessment && (
-            <PatentabilityAlert
-              assessment={currentAnalysis.patentabilityAssessment}
-              onUploadNew={() => router.push('/')}
-            />
-          )}
+      <div className="container mx-auto px-4 py-8 relative">
+        {/* Back button */}
+        <button
+          onClick={() => router.push('/analyses')}
+          className="flex items-center gap-2 text-foreground-muted hover:text-foreground transition-colors mb-6 group"
+        >
+          <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+          <span>Back to all analyses</span>
+        </button>
 
-          {/* Overall Assessment */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center space-x-2">
-              <TrendingUp className="h-6 w-6 text-blue-600" />
-              <span>Overall Assessment</span>
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              {/* Novelty Score */}
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
-                <p className="text-sm text-blue-800 mb-2 font-medium">Novelty Score</p>
-                <div className="flex items-baseline space-x-2">
-                  <span className={`text-5xl font-bold ${getNoveltyScoreColor(noveltyScore || 0)}`}>
-                    {noveltyScore?.toFixed(1)}
-                  </span>
-                  <span className="text-2xl text-gray-600">/100</span>
+        {/* Header */}
+        <div className="card p-6 mb-6">
+          <div className="flex items-start justify-between mb-4">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/25">
+                  <FileText className="w-6 h-6 text-white" />
                 </div>
-                <div className="mt-3 h-2 bg-white rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-blue-600 rounded-full transition-all"
-                    style={{ width: `${noveltyScore}%` }}
-                  />
-                </div>
+                <h1 className="text-3xl font-bold text-foreground">{title}</h1>
               </div>
-
-              {/* Recommendation */}
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-200">
-                <p className="text-sm text-gray-800 mb-2 font-medium">Recommendation</p>
-                <span
-                  className={`inline-block px-4 py-2 text-2xl font-bold rounded-lg border-2 ${getRecommendationColor(
-                    recommendation || ''
-                  )}`}
-                >
-                  {recommendation?.toUpperCase()}
+              <div className="flex items-center gap-4 text-sm text-foreground-muted">
+                <span className="flex items-center gap-1">
+                  <FileText className="h-4 w-4" />
+                  <span>{disclosure.filename}</span>
                 </span>
+                <span>{formatDateTime(disclosure.uploadedAt)}</span>
               </div>
             </div>
 
-            {/* Reasoning */}
-            {reasoning && (
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <p className="text-gray-800 leading-relaxed">{reasoning}</p>
-              </div>
+            {status === 'completed' && (
+              <button
+                onClick={handleGenerateReport}
+                disabled={isGeneratingReport}
+                className="btn btn-gradient"
+              >
+                {isGeneratingReport ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Download className="h-4 w-4" />
+                )}
+                <span>Download Report</span>
+              </button>
             )}
           </div>
 
-          {/* Extracted Claims */}
-          {extractedClaims && (
-            <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Extracted Claims</h2>
-
-              <div className="space-y-6">
-                {/* Background */}
-                {extractedClaims.background && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Background</h3>
-                    <p className="text-gray-700 leading-relaxed">{extractedClaims.background}</p>
-                  </div>
-                )}
-
-                {/* Innovations */}
-                {extractedClaims.innovations && extractedClaims.innovations.length > 0 && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Key Innovations</h3>
-                    <ul className="space-y-2">
-                      {extractedClaims.innovations.map((innovation, idx) => (
-                        <li key={idx} className="flex items-start space-x-2">
-                          <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{innovation}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Keywords */}
-                {extractedClaims.keywords && extractedClaims.keywords.length > 0 && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Keywords</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {extractedClaims.keywords.map((keyword, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
-                        >
-                          {keyword}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* IPC Classifications */}
-                {extractedClaims.ipcClassifications && extractedClaims.ipcClassifications.length > 0 && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">IPC Classifications</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {extractedClaims.ipcClassifications.map((ipc, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-purple-100 text-purple-800 rounded text-sm font-mono font-medium"
-                        >
-                          {ipc}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Similar Patents (only show if patentable or no assessment) */}
-          {(!currentAnalysis.patentabilityAssessment ||
-            currentAnalysis.patentabilityAssessment.isPatentable) &&
-           patents && patents.length > 0 && (
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <div className="mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Similar Patents</h2>
-                <p className="text-gray-600">
-                  Found {patents.length} similar patent{patents.length !== 1 ? 's' : ''}, sorted by similarity score
+          {/* Status indicator */}
+          {status === 'processing' && (
+            <div className="flex items-center gap-3 p-4 rounded-xl bg-info/10 border border-info/30">
+              <div className="processing-ring w-5 h-5" />
+              <div>
+                <p className="font-medium text-info">Analysis in progress...</p>
+                <p className="text-sm text-foreground-muted">
+                  This may take a few minutes. The page will update automatically.
                 </p>
               </div>
+            </div>
+          )}
 
-              <div className="space-y-4">
-                {patents.map((patent, idx) => (
-                  <PatentCard key={patent.id} patent={patent} rank={idx + 1} />
-                ))}
+          {status === 'failed' && (
+            <div className="flex items-center gap-3 p-4 rounded-xl bg-error/10 border border-error/30">
+              <XCircle className="h-5 w-5 text-error" />
+              <div>
+                <p className="font-medium text-error">Analysis failed</p>
+                <p className="text-sm text-foreground-muted">{reasoning || 'An error occurred during analysis'}</p>
               </div>
             </div>
           )}
+        </div>
 
-          {/* Show message if prior art search was skipped */}
-          {currentAnalysis.patentabilityAssessment &&
-           !currentAnalysis.patentabilityAssessment.isPatentable && (
-            <div className="bg-gray-50 rounded-lg border-2 border-gray-200 p-6 text-center">
-              <AlertCircle className="h-12 w-12 text-gray-400 mx-auto mb-3" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Prior Art Search Skipped
-              </h3>
-              <p className="text-gray-600">
-                The expensive prior art search was not performed because the disclosure
-                was determined to be not patentable during the initial assessment.
-                This saved approximately $500-$1,000 in search costs.
-              </p>
+        {/* Results (if completed) */}
+        {status === 'completed' && (
+          <>
+            {/* Patentability Assessment Alert */}
+            {currentAnalysis.patentabilityAssessment && (
+              <PatentabilityAlert
+                assessment={currentAnalysis.patentabilityAssessment}
+                onUploadNew={() => router.push('/')}
+              />
+            )}
+
+            {/* Overall Assessment */}
+            <div className="card p-6 mb-6">
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <TrendingUp className="h-5 w-5 text-primary" />
+                </div>
+                <span>Overall Assessment</span>
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                {/* Novelty Score */}
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20">
+                  <p className="text-sm text-foreground-muted mb-2 font-medium">Novelty Score</p>
+                  <div className="flex items-baseline gap-2">
+                    <span className={`text-5xl font-bold ${getNoveltyScoreColor(noveltyScore || 0)}`}>
+                      {noveltyScore?.toFixed(1)}
+                    </span>
+                    <span className="text-2xl text-foreground-muted">/100</span>
+                  </div>
+                  <div className="mt-4 h-2 bg-background-tertiary rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all"
+                      style={{ width: `${noveltyScore}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Recommendation */}
+                <div className="p-6 rounded-2xl bg-background-tertiary border border-border">
+                  <p className="text-sm text-foreground-muted mb-2 font-medium">Recommendation</p>
+                  <span
+                    className={`inline-block px-4 py-2 text-xl font-bold rounded-xl ${getRecommendationColor(
+                      recommendation || ''
+                    )}`}
+                  >
+                    {recommendation?.toUpperCase()}
+                  </span>
+                </div>
+              </div>
+
+              {/* Reasoning */}
+              {reasoning && (
+                <div className="p-4 rounded-xl bg-background-tertiary border border-border">
+                  <p className="text-foreground-muted leading-relaxed">{reasoning}</p>
+                </div>
+              )}
             </div>
-          )}
-        </>
-      )}
+
+            {/* Extracted Claims */}
+            {extractedClaims && (
+              <div className="card p-6 mb-6">
+                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <BookOpen className="h-5 w-5 text-accent" />
+                  </div>
+                  <span>Extracted Claims</span>
+                </h2>
+
+                <div className="space-y-6">
+                  {/* Background */}
+                  {extractedClaims.background && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">Background</h3>
+                      <p className="text-foreground-muted leading-relaxed">{extractedClaims.background}</p>
+                    </div>
+                  )}
+
+                  {/* Innovations */}
+                  {extractedClaims.innovations && extractedClaims.innovations.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <Lightbulb className="h-5 w-5 text-warning" />
+                        Key Innovations
+                      </h3>
+                      <ul className="space-y-2">
+                        {extractedClaims.innovations.map((innovation, idx) => (
+                          <li key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-background-tertiary">
+                            <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
+                            <span className="text-foreground-muted">{innovation}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Keywords */}
+                  {extractedClaims.keywords && extractedClaims.keywords.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <Tag className="h-5 w-5 text-primary" />
+                        Keywords
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        {extractedClaims.keywords.map((keyword, idx) => (
+                          <span key={idx} className="tag tag-primary">
+                            {keyword}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* IPC Classifications */}
+                  {extractedClaims.ipcClassifications && extractedClaims.ipcClassifications.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-3">IPC Classifications</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {extractedClaims.ipcClassifications.map((ipc, idx) => (
+                          <span key={idx} className="badge badge-neutral badge-pill font-mono text-sm">
+                            {ipc}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Similar Patents (only show if patentable or no assessment) */}
+            {(!currentAnalysis.patentabilityAssessment ||
+              currentAnalysis.patentabilityAssessment.isPatentable) &&
+             patents && patents.length > 0 && (
+              <div className="card p-6">
+                <div className="mb-6">
+                  <h2 className="text-2xl font-bold text-foreground mb-2">Similar Patents</h2>
+                  <p className="text-foreground-muted">
+                    Found {patents.length} similar patent{patents.length !== 1 ? 's' : ''}, sorted by similarity score
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {patents.map((patent, idx) => (
+                    <PatentCard key={patent.id} patent={patent} rank={idx + 1} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Show message if prior art search was skipped */}
+            {currentAnalysis.patentabilityAssessment &&
+             !currentAnalysis.patentabilityAssessment.isPatentable && (
+              <div className="glass-card p-8 text-center">
+                <div className="w-16 h-16 rounded-2xl bg-foreground-muted/10 flex items-center justify-center mx-auto mb-4">
+                  <AlertCircle className="h-8 w-8 text-foreground-muted" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  Prior Art Search Skipped
+                </h3>
+                <p className="text-foreground-muted max-w-md mx-auto">
+                  The expensive prior art search was not performed because the disclosure
+                  was determined to be not patentable during the initial assessment.
+                  This saved approximately $500-$1,000 in search costs.
+                </p>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </div>
   );

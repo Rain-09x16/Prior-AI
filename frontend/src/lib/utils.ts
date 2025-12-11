@@ -45,47 +45,47 @@ export function formatDateTime(date: string | Date): string {
 }
 
 /**
- * Get status color
+ * Get status color - using theme variables
  */
 export function getStatusColor(status: string): string {
   switch (status) {
     case 'completed':
-      return 'text-green-600 bg-green-50 border-green-200';
+      return 'text-success bg-success/10 border-success/30';
     case 'processing':
-      return 'text-blue-600 bg-blue-50 border-blue-200';
+      return 'text-info bg-info/10 border-info/30';
     case 'failed':
-      return 'text-red-600 bg-red-50 border-red-200';
+      return 'text-error bg-error/10 border-error/30';
     default:
-      return 'text-gray-600 bg-gray-50 border-gray-200';
+      return 'text-foreground-muted bg-background-tertiary border-border';
   }
 }
 
 /**
- * Get recommendation color
+ * Get recommendation color - using theme variables
  */
 export function getRecommendationColor(recommendation: string): string {
   switch (recommendation) {
     case 'pursue':
-      return 'text-green-700 bg-green-100 border-green-300';
+      return 'text-success bg-success/10 border border-success/30';
     case 'reconsider':
-      return 'text-orange-700 bg-orange-100 border-orange-300';
+      return 'text-warning bg-warning/10 border border-warning/30';
     case 'reject':
-      return 'text-red-700 bg-red-100 border-red-300';
+      return 'text-error bg-error/10 border border-error/30';
     default:
-      return 'text-gray-700 bg-gray-100 border-gray-300';
+      return 'text-foreground-muted bg-background-tertiary border border-border';
   }
 }
 
 /**
- * Get novelty score color
+ * Get novelty score color - using theme variables
  */
 export function getNoveltyScoreColor(score: number): string {
   if (score >= 70) {
-    return 'text-green-600';
+    return 'text-success';
   } else if (score >= 40) {
-    return 'text-orange-600';
+    return 'text-warning';
   } else {
-    return 'text-red-600';
+    return 'text-error';
   }
 }
 
